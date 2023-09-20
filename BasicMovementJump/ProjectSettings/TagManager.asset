@@ -6,6 +6,7 @@ TagManager:
   tags:
   - OB
   - Grounded
+  - DoubleJump
   layers:
   - Default
   - TransparentFX
