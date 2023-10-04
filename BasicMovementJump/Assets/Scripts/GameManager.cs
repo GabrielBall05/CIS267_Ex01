@@ -1,15 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-//Get rid of : Mono Behavior and add static for our GameManager
-public static class GameManager 
+public class GameManager : MonoBehaviour
 {
-    private static int playerMovementSpeed;
+    private bool gameOver;
 
-    public static int getPlayerMovementSpeed()
+    private void Start()
     {
-        return playerMovementSpeed;
-        //When you do your typical movement, you'll call GameManager.getPlayerMovementSpeed() instead
+        setGameOver(false);
+    }
+
+    public bool getGameOver()
+    {
+        return gameOver;
+    }
+
+    public void setGameOver(bool g)
+    {
+        gameOver = g;
+        evaluateGameState();
+    }
+
+    public void evaluateGameState()
+    {
+        if(gameOver)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 }
